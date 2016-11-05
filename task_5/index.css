@@ -1,0 +1,74 @@
+body{
+	font-family: "黑体";
+    font-size: 14px;
+    margin: 0px;
+    border: 0px;
+    background: #DEDEDE;
+    min-width: 750px;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+img{max-width: 100%;}
+
+.baidu-nav{width:100%;height:70px;background-color: #333333;display: table;}
+.baidu-logo{display: table-cell;vertical-align: middle;}
+.baidu-logo img{vertical-align: middle;margin-left: 35px;}
+.header-nav{
+	height: 100%;
+	float: right;
+}
+.header-nav ul{
+	float:right;
+	padding: 0;
+	margin:0;
+}
+.header-nav ul li{
+	line-height: 70px;
+	float: left;
+	margin-right:20px;
+}
+.baidu-wrapper{padding-top:40px;}
+.baidu-aside{
+	float: right;
+	width:350px;
+	margin: 0 20px 0 20px;
+	padding: 10px 20px;
+	box-sizing:border-box;
+	background-color: #fff;
+}
+.baidu-aside h4{border-left: 2px solid #aaa;padding-left: 5px;}
+.baidu-aside table tr td{padding: 5px;}
+.baidu-aside table tr td:first-child{text-align: right;}
+.baidu-aside .form-submit{width: 100%;height: 40px;border-radius: 8px;background-color: #3355D0;font-size:18px;color: #fff;}
+
+.article-wrapper{
+	margin-right:390px;
+}
+.article-wrapper article{
+	background-color: #fff;
+	padding: 20px;
+	margin:0 40px 40px 40px;
+}
+.article-wrapper article a{
+	text-decoration: underline;
+	color: #000;
+}
+
+.article2-itemlist{list-style: none;}
+.article2-itemlist li{padding: 5px 0;}
+
+.picture-item{width:140px;height: 120px;border: 1px solid #aaa;text-align: center;display: inline-block;margin: 5px 20px;}
+.picture-item figcaption{padding: 5px;}
+.picture-item img{width: 70%;height: 80px;}
+
+.article3-table{width: 100%;border:1px solid #aaa;border-collapse: collapse;}
+.article3-table thead{background-color: #333;color:#fff;}
+.article3-table tfoot{background-color: #ccc;}
+.article3-table tbody tr{border:1px solid #aaa;}
+.article3-table tbody td{border:1px solid #aaa;}
+
+.baidu-footer{height: 60px;background-color: #000;text-align: center;}
+.baidu-footer span{line-height:60px;color: #fff;}
