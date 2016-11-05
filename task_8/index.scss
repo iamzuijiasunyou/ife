@@ -1,0 +1,75 @@
+$height: 50px;
+$backgroundColor:#eee;
+$borderColor:#999;
+
+@mixin resetCss{
+	padding: 0;
+	margin: 0;
+}
+
+@mixin containerCss{
+	padding: 0 15px;
+}
+@mixin rowCss{
+	margin:0 -15px;
+}
+@mixin clearfix{/*clearfix*/
+	display: block;
+    clear: both;
+    content: "";
+}
+
+@mixin createGrid($type){
+	@for $i from 1 through 12 {
+		.col-#{$type}-#{$i} {
+			width: 100% / 12 * $i;
+		}
+	}
+}
+
+@mixin createOuterCss(){
+	$columnType : md,xs;
+	@for $i from 1 through 12 {
+		@each $j in $columnType{
+			.col-#{$j}-#{$i}{
+				@extend .outerCss;
+			}
+		}
+	}
+}
+
+body{
+	@include resetCss;
+}
+
+@media screen and(max-width: 768px){
+	@include createGrid(xs)
+}
+
+@media screen and(min-width: 768px){
+	@include createGrid(md)
+}
+
+.container{
+	@include containerCss;
+	.row{
+		@include rowCss;
+	}
+	.row:after{
+		@include clearfix;
+	}
+}
+
+.outerCss{
+	float: left;
+	margin: 20px 0;
+	padding: 0 10px;
+	box-sizing:border-box;
+}
+@include createOuterCss;
+
+.innerDiv{
+	height: $height;
+	background-color: $backgroundColor;
+	border: 1px solid $borderColor;
+}
