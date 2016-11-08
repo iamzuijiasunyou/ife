@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,SAAS;EACR,KAAK,EAAE,KAAK;EACZ,QAAQ,EAAE,QAAQ;EACf,MAAM,EAAE,CAAC;EACT,GAAG,EAAE,IAAI;EACZ,gBAAgB,EAAE,OAAO",
-"sources": ["leftnav.scss"],
-"names": [],
-"file": "leftnav.css"
-}

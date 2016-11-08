@@ -80,7 +80,7 @@ a {
       height: 100%; }
     .container .condition .condition-item.has-change {
       padding-right: 28px;
-      background: url(image/task_1_9_6.png) no-repeat right; }
+      background: url(../image/task_1_9_6.png) no-repeat right; }
     .container .condition .item-row {
       padding: 1.5px 0; }
     .container .condition label {
@@ -92,13 +92,13 @@ a {
       border: 1px solid #b7b7b7;
       outline: none;
       padding: 0 8px;
-      background: url(image/task_1_9_4.png) no-repeat right;
+      background: url(../image/task_1_9_4.png) no-repeat right;
       background-origin: content-box;
       font: 12px "SimHei"; }
       .container .condition .normal-select.hidebg, .container .condition .larger-select.hidebg {
         background-image: none; }
     .container .condition .normal-select:focus, .container .condition .larger-select:focus {
-      background-image: url(image/task_1_9_5.png); }
+      background-image: url(../image/task_1_9_5.png); }
     .container .condition .normal-select {
       width: 71px; }
     .container .condition .larger-select {
@@ -325,7 +325,7 @@ a {
         height: 100%;
         width: 20px;
         border-left: .5px solid #cacbcb;
-        background: url(image/task_1_9_10.png) no-repeat center; }
+        background: url(../image/task_1_9_10.png) no-repeat center; }
       .execl .calendar .date .year {
         width: 65px; }
       .execl .calendar .date .month {
