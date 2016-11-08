@@ -1,0 +1,46 @@
+/*header of page*/
+$headerBg : #2189bf;
+.header{
+	height: 56px;
+	width: 100%;
+	display: table;
+	background-color: $headerBg;
+	.logo{
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 50px;
+
+		.logo img{
+			display: inline-block;
+			max-height: 100%;
+		}
+	}
+
+	.search-login{
+		display: table-cell;
+		padding-right: 90px;
+		vertical-align: middle;
+		text-align: right;
+
+		.search-input{
+			height: 28px;
+			width: 313px;
+			box-sizing:border-box;
+			border-radius: 14px;
+			border: none;
+			outline: none;
+			padding-left: 35px;/*let text behind of backgorundimage*/
+			background: #fff url(image/task_1_9_2.png) no-repeat 15px center;
+		}
+
+		.login-link{
+			font: 12px/16px $heiti;
+			color: #fff;
+		}
+		.login-img{
+			position: relative;
+   			top: -2px;
+			vertical-align: middle;
+		}
+	}
+}

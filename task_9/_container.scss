@@ -1,0 +1,488 @@
+@charset "UTF-8";
+.container{
+	margin-left: 260px;
+	min-height: 1000px;
+	background-color: #ededec;
+
+	.nav,.condition{
+		background-color: #fff;
+	}
+
+	/*header nav*/
+	.nav{
+		height: 30px;
+		padding-left: 30px;
+		font: 12px/30px $heiti;
+		color: #b7b7b7;
+		background-color: #fff;
+		span{
+			padding: 0 10px;
+			cursor: pointer;
+		}
+		span.current{
+			color: #82a8cb;
+		}
+	}
+
+	.main-content{
+		padding: 20px 70px 150px 60px;
+	}
+
+	.condition{
+		height: 86px;
+		padding: 15px 30px;
+		box-sizing:border-box;
+		color: #000;
+		font: 12px/26px $heiti;
+
+		.condition-item{
+			float: left;
+			margin-right:36px;
+			height: 100%;
+		}
+		.condition-item.has-change{
+			padding-right: 28px;
+			background: url(image/task_1_9_6.png) no-repeat right;
+		}
+		.item-row{
+			padding: 1.5px 0;
+		}
+		label{
+			margin-right: 16px;
+			color: #b7b7b7;
+		}
+		.normal-select,.larger-select{
+			height: 26px;
+    		-webkit-appearance: button;
+    		border: 1px solid #b7b7b7;
+   			outline: none;
+    		padding: 0 8px;
+    		background: url(image/task_1_9_4.png) no-repeat right;
+    		background-origin: content-box;
+    		font: 12px "SimHei";
+
+			&.hidebg{
+				background-image: none;
+			}
+		}
+		.normal-select:focus,.larger-select:focus{
+			background-image: url(image/task_1_9_5.png);
+		}
+		.normal-select{
+			width: 71px;
+		}
+		.larger-select{
+			width: 121px;
+		}
+
+		.has-unit{
+			word-spacing: 10px;
+		}
+
+		.vertical-middle{
+			line-height: 86px;
+		}
+		.search-input{
+			width: 51px;
+			border: 0px;
+			outline: 0px;
+			background-color: #388bc2;
+			padding: 0px 14px;
+			color: #fff;
+    		font: 12px/26px $heiti;
+    		position: relative;
+    		top: -14px;/*调整位置 垂直居中*/
+		}
+	}
+
+	.record{
+		height: 65px;
+		margin-top: 9px;
+		display: flex;
+		text-align: center;
+		justify-content:space-between;
+
+		&>*{
+			height: 100%;
+			display: flex;
+			flex-flow:column nowrap;
+			justify-content:center;
+		}
+		.arrow{
+			width: 31px;
+			background-color: #fff;
+		}
+		.record-item{
+			width: 111px;
+			box-sizing:border-box;
+			background-color: #fff;
+		}
+		.record-item:hover{
+			border-top: 4px solid #4388c8;
+		}
+
+		.time{
+			font: 12px $yahei;
+		}
+
+		.money{
+			font: 21px $yahei;
+			color: #ec6500;
+		}
+		.money:before{
+			content: "¥";
+			font: bold 18px "SimHei";
+			color: #adadad;
+		}
+		.history-query{
+			width: 131px;
+		}
+		.history-query a{
+			font: 12px/16.57px $yahei;
+			color: #000;
+		}
+		.query-img{
+			vertical-align: middle;
+			position: relative;
+			top: -2px;
+		}
+	}
+
+	.count{
+		display: flex;
+		flex-wrap:wrap;
+		justify-content:space-between;
+		margin-top: 12px;
+
+		.count-header{
+			width: 100%;
+			font: 12px/31px $yahei;
+		}
+		.count-item{
+			width: 201px;
+			height: 71px;
+			display: flex;
+			box-sizing:border-box;
+			background-color: #fff;
+			border-left: 4px solid #fff;
+			outline: 1px solid #d8d9db;
+			justify-content:space-between;
+			align-items:center;
+		}
+		.count-number{
+			margin-left: 8px;
+		}
+		.count-numdigit{
+			font: 12px/24px $heiti;
+		}
+		.count-numtext{
+			font: 10px/20px $heiti;
+			color: #aaaaaa;
+		}
+
+		.rectangle{
+			margin: 15px;
+			width: 61px;
+			height: 47px;
+		}
+
+	}
+
+	$color-list:( "lightgreen": #43b29d, "lightblue":#388ac1, "lightred":#cf4a36, "lightyellow":#e2cd47);
+		@each $class , $color in $color-list{
+			.count-item.#{$class}{
+				border-color:$color;
+
+				.rectangle{
+					background-color: $color;
+				}
+			}
+		}
+
+}
+
+.execl{
+	display: flex;
+	flex-flow:row wrap;
+	justify-content:space-between;
+	margin-top: 14px;
+	color: #535353;
+
+	h3{
+			padding-left: 20px;
+			border-radius: 5px;
+			font: 12px/41px $heiti;
+			color: #000;
+			background-color: #f4f5f6;
+	}
+	.first-project-excel,.first-project-info,.calendar,.brand-list{
+		margin-bottom: 9px;
+		border: 1px solid #d8d9da;
+		border-radius: 5px;
+		background-color: #fff;
+	}
+
+	.first-project-excel{
+		width: 531px;
+		font-size: 0;
+
+		.project-wrap{
+			padding:10px 20px 24px 20px;
+			border-bottom-left-radius: 5px;
+    		border-bottom-right-radius: 5px;
+		}
+
+		nav label{
+			display: inline-block;
+			width: 87.5px;
+			height: 28px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			margin-right: 5px;
+			font: 12px $yahei;
+			line-height: 28px;
+			text-align: center;
+			color: #000;
+			background-color: #ededf0;
+			position: relative;/*使得与下方边框重合*/
+			top: 1px;
+		}
+		input[name="tabs"]{
+			display: none;
+		}
+		input[name="tabs"]:checked+label{
+			background-color: #fff;
+			border-width: 1px;
+			border-style: solid;
+			border-color:#cacbcb; 
+			border-bottom-color: #fff;
+			z-index: 1;/*覆盖边框*/
+		}
+		.project-content{
+			position: relative;
+			padding: 28px 50px 37px 38px;
+			border: 1px solid #cacbcb;
+			border-radius: 3px;
+		}
+
+		table{
+			width: 100%;
+			font: 12px/30px $songti;
+			text-align: center;
+			border: 1px solid #cacbcb;
+			border-collapse: collapse;
+		}
+		td{
+			border: 1px solid #cacbcb;
+		}
+		td.active,td:hover{
+			background-color: #f4f5f7;
+		}
+	}
+
+	.first-project-info{
+		width: 350px;
+		font: 12px/20px $yahei;
+
+		.project-wrap{
+			padding: 15px 35px 35px;
+
+			&>*{
+				padding-left: 17px;
+			}
+		}
+		.title-font{
+			color: #c3c2c2;
+		}
+		.content-info{
+			padding-bottom: 5px;
+		}
+		.detail-description{
+			min-height: 127px;
+			border-bottom: 1px solid #e7e7e7;
+		}
+		.price,.manager{
+			float: left;
+			box-sizing:border-box;
+		}
+		.price{
+			width: 30%;
+			border: 1px solid #e7e7e7;
+			border-left: none;
+		}
+		.manager{
+			width: 70%;
+			border-style: solid;
+			border-color: #e7e7e7;
+			border-width: 1px 0;
+		}
+		.project-other{
+			margin-top: 10px;
+			overflow: hidden;
+		}
+		.align-left{
+			float: left;
+		}
+		.align-right{
+			float: right;
+		}
+		.query-button{
+			background-color: #388ac1;
+    		padding: 5px 10px;
+    		border: none;
+    		border-radius: 3px;
+		}
+	}
+
+	.calendar{
+		width: 351px;
+		font: 12px $heiti;
+
+		.calendar-wrap{
+			padding: 10px 20px 23px;
+		}
+
+		.date{
+			list-style: none;
+			line-height: 23px;
+			text-align: center;
+			overflow: hidden;
+
+			li{
+				float: left;
+				height: 23px;
+				margin: 0 2px;
+				box-sizing: border-box;
+				border:1px solid #cacbcb;
+			}
+
+			i{
+				float: right;
+				height: 100%;
+				width: 20px;
+				border-left: .5px solid #cacbcb;
+				background: url(image/task_1_9_10.png) no-repeat center;
+			}
+			.year{
+				width: 65px;
+			}
+			.month{
+				width:86px;
+			}
+			.market-date{
+				width: 76px;
+			}
+			.back-today{
+				width: 65px;
+			}
+		}
+
+		.calendar-days{
+			height: 36px;
+			margin-top: 10px;
+			border-style: solid;
+			border-color: #a9cfec #ececed;
+			border-width: 1px 0 1px 0;
+			line-height: 36px;
+
+			span{
+				float: left;
+				width: 14.2857%;
+				text-align: center;
+			}
+		}
+
+		.calendar-book{
+			list-style: none;
+			font-size: 0;
+
+			li{
+				display: inline-block;
+				box-sizing:border-box;
+				width: 14.2857%;
+				height: 42px;
+				padding-top: 9px;/*字体居中*/
+				margin: 2px 0;
+				text-align: center;
+				font: 12px $heiti;
+			}
+
+			li p{
+				float: left;
+				width: 100%;
+			}
+
+			.red-font{
+				color: #cd3539;
+			}
+
+			.market-day{
+				border: 1px solid #f7d463;
+			}
+		}
+	}
+	.brand-list{
+		width: 531px;
+
+		.brand-wrap{
+			padding: 20px 40px;
+			font: 13px/25px $heiti; 
+
+			table{
+				width: 100%;
+				border:1px solid #ececed;
+				border-collapse: collapse;
+				text-align: center;
+			}
+			table tr{
+				cursor: pointer;
+			}
+			table tr:hover{
+				background-color: #f4f6f7;
+			}
+			table td,table th{
+				border:1px solid #ececed;
+			}
+			.first-column{
+				min-width: 70px;
+			}
+			.second-column{
+				min-width: 90px;
+			}
+			tr :nth-child(3){
+				text-align: left;
+				padding-left: 25px;
+			}
+			p{
+				display: inline-block;
+				width: 167px;
+				height: 4px;
+				vertical-align: middle;
+				background-color: #dddddd;
+
+				span{
+					    display: inline-block;
+    					height: 100%;
+    					vertical-align: top;
+				}
+			}
+		}
+	}
+
+}
+
+$all-count: 58345029;
+$query-list: (dazhong:48912001,fengtian:29307333,aodi:23139070,bentian:22885564,fute:22324792,baoma:21444077,xiandai:20114969,qiya:19251680,benchi:19172837,bieke:18544027);
+
+@each $brand , $query-times in $query-list{
+	.query-#{$brand}{
+		width: $query-times / $all-count * 167px;
+	}
+}
+
+$color-list1:("lightblue":#7fcbf0, "lightred":#ec6e51, "lightorange":#f19e4f);
+@each $colorname , $color in $color-list1{
+	.color-#{$colorname}{
+		background-color: $color;
+	}
+}

@@ -1,0 +1,508 @@
+@charset "UTF-8";
+body {
+  min-width: 1280px; }
+
+body, div, section, article, h1, h2, h3, h4, h5, h6, ul, ol, figure, p, hr {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+.container-wrap {
+  position: relative; }
+
+/*header of page*/
+.header {
+  height: 56px;
+  width: 100%;
+  display: table;
+  background-color: #2189bf; }
+  .header .logo {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 50px; }
+    .header .logo .logo img {
+      display: inline-block;
+      max-height: 100%; }
+  .header .search-login {
+    display: table-cell;
+    padding-right: 90px;
+    vertical-align: middle;
+    text-align: right; }
+    .header .search-login .search-input {
+      height: 28px;
+      width: 313px;
+      box-sizing: border-box;
+      border-radius: 14px;
+      border: none;
+      outline: none;
+      padding-left: 35px;
+      /*let text behind of backgorundimage*/
+      background: #fff url(image/task_1_9_2.png) no-repeat 15px center; }
+    .header .search-login .login-link {
+      font: 12px/16px "SimHei";
+      color: #fff; }
+    .header .search-login .login-img {
+      position: relative;
+      top: -2px;
+      vertical-align: middle; }
+
+.container {
+  margin-left: 260px;
+  min-height: 1000px;
+  background-color: #ededec;
+  /*header nav*/ }
+  .container .nav, .container .condition {
+    background-color: #fff; }
+  .container .nav {
+    height: 30px;
+    padding-left: 30px;
+    font: 12px/30px "SimHei";
+    color: #b7b7b7;
+    background-color: #fff; }
+    .container .nav span {
+      padding: 0 10px;
+      cursor: pointer; }
+    .container .nav span.current {
+      color: #82a8cb; }
+  .container .main-content {
+    padding: 20px 70px 150px 60px; }
+  .container .condition {
+    height: 86px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    color: #000;
+    font: 12px/26px "SimHei"; }
+    .container .condition .condition-item {
+      float: left;
+      margin-right: 36px;
+      height: 100%; }
+    .container .condition .condition-item.has-change {
+      padding-right: 28px;
+      background: url(image/task_1_9_6.png) no-repeat right; }
+    .container .condition .item-row {
+      padding: 1.5px 0; }
+    .container .condition label {
+      margin-right: 16px;
+      color: #b7b7b7; }
+    .container .condition .normal-select, .container .condition .larger-select {
+      height: 26px;
+      -webkit-appearance: button;
+      border: 1px solid #b7b7b7;
+      outline: none;
+      padding: 0 8px;
+      background: url(image/task_1_9_4.png) no-repeat right;
+      background-origin: content-box;
+      font: 12px "SimHei"; }
+      .container .condition .normal-select.hidebg, .container .condition .larger-select.hidebg {
+        background-image: none; }
+    .container .condition .normal-select:focus, .container .condition .larger-select:focus {
+      background-image: url(image/task_1_9_5.png); }
+    .container .condition .normal-select {
+      width: 71px; }
+    .container .condition .larger-select {
+      width: 121px; }
+    .container .condition .has-unit {
+      word-spacing: 10px; }
+    .container .condition .vertical-middle {
+      line-height: 86px; }
+    .container .condition .search-input {
+      width: 51px;
+      border: 0px;
+      outline: 0px;
+      background-color: #388bc2;
+      padding: 0px 14px;
+      color: #fff;
+      font: 12px/26px "SimHei";
+      position: relative;
+      top: -14px;
+      /*调整位置 垂直居中*/ }
+  .container .record {
+    height: 65px;
+    margin-top: 9px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between; }
+    .container .record > * {
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center; }
+    .container .record .arrow {
+      width: 31px;
+      background-color: #fff; }
+    .container .record .record-item {
+      width: 111px;
+      box-sizing: border-box;
+      background-color: #fff; }
+    .container .record .record-item:hover {
+      border-top: 4px solid #4388c8; }
+    .container .record .time {
+      font: 12px "Microsoft YaHei"; }
+    .container .record .money {
+      font: 21px "Microsoft YaHei";
+      color: #ec6500; }
+    .container .record .money:before {
+      content: "¥";
+      font: bold 18px "SimHei";
+      color: #adadad; }
+    .container .record .history-query {
+      width: 131px; }
+    .container .record .history-query a {
+      font: 12px/16.57px "Microsoft YaHei";
+      color: #000; }
+    .container .record .query-img {
+      vertical-align: middle;
+      position: relative;
+      top: -2px; }
+  .container .count {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 12px; }
+    .container .count .count-header {
+      width: 100%;
+      font: 12px/31px "Microsoft YaHei"; }
+    .container .count .count-item {
+      width: 201px;
+      height: 71px;
+      display: flex;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-left: 4px solid #fff;
+      outline: 1px solid #d8d9db;
+      justify-content: space-between;
+      align-items: center; }
+    .container .count .count-number {
+      margin-left: 8px; }
+    .container .count .count-numdigit {
+      font: 12px/24px "SimHei"; }
+    .container .count .count-numtext {
+      font: 10px/20px "SimHei";
+      color: #aaaaaa; }
+    .container .count .rectangle {
+      margin: 15px;
+      width: 61px;
+      height: 47px; }
+  .container .count-item.lightgreen {
+    border-color: #43b29d; }
+    .container .count-item.lightgreen .rectangle {
+      background-color: #43b29d; }
+  .container .count-item.lightblue {
+    border-color: #388ac1; }
+    .container .count-item.lightblue .rectangle {
+      background-color: #388ac1; }
+  .container .count-item.lightred {
+    border-color: #cf4a36; }
+    .container .count-item.lightred .rectangle {
+      background-color: #cf4a36; }
+  .container .count-item.lightyellow {
+    border-color: #e2cd47; }
+    .container .count-item.lightyellow .rectangle {
+      background-color: #e2cd47; }
+
+.execl {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 14px;
+  color: #535353; }
+  .execl h3 {
+    padding-left: 20px;
+    border-radius: 5px;
+    font: 12px/41px "SimHei";
+    color: #000;
+    background-color: #f4f5f6; }
+  .execl .first-project-excel, .execl .first-project-info, .execl .calendar, .execl .brand-list {
+    margin-bottom: 9px;
+    border: 1px solid #d8d9da;
+    border-radius: 5px;
+    background-color: #fff; }
+  .execl .first-project-excel {
+    width: 531px;
+    font-size: 0; }
+    .execl .first-project-excel .project-wrap {
+      padding: 10px 20px 24px 20px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+    .execl .first-project-excel nav label {
+      display: inline-block;
+      width: 87.5px;
+      height: 28px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-right: 5px;
+      font: 12px "Microsoft YaHei";
+      line-height: 28px;
+      text-align: center;
+      color: #000;
+      background-color: #ededf0;
+      position: relative;
+      /*使得与下方边框重合*/
+      top: 1px; }
+    .execl .first-project-excel input[name="tabs"] {
+      display: none; }
+    .execl .first-project-excel input[name="tabs"]:checked + label {
+      background-color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #cacbcb;
+      border-bottom-color: #fff;
+      z-index: 1;
+      /*覆盖边框*/ }
+    .execl .first-project-excel .project-content {
+      position: relative;
+      padding: 28px 50px 37px 38px;
+      border: 1px solid #cacbcb;
+      border-radius: 3px; }
+    .execl .first-project-excel table {
+      width: 100%;
+      font: 12px/30px "simsun";
+      text-align: center;
+      border: 1px solid #cacbcb;
+      border-collapse: collapse; }
+    .execl .first-project-excel td {
+      border: 1px solid #cacbcb; }
+    .execl .first-project-excel td.active, .execl .first-project-excel td:hover {
+      background-color: #f4f5f7; }
+  .execl .first-project-info {
+    width: 350px;
+    font: 12px/20px "Microsoft YaHei"; }
+    .execl .first-project-info .project-wrap {
+      padding: 15px 35px 35px; }
+      .execl .first-project-info .project-wrap > * {
+        padding-left: 17px; }
+    .execl .first-project-info .title-font {
+      color: #c3c2c2; }
+    .execl .first-project-info .content-info {
+      padding-bottom: 5px; }
+    .execl .first-project-info .detail-description {
+      min-height: 127px;
+      border-bottom: 1px solid #e7e7e7; }
+    .execl .first-project-info .price, .execl .first-project-info .manager {
+      float: left;
+      box-sizing: border-box; }
+    .execl .first-project-info .price {
+      width: 30%;
+      border: 1px solid #e7e7e7;
+      border-left: none; }
+    .execl .first-project-info .manager {
+      width: 70%;
+      border-style: solid;
+      border-color: #e7e7e7;
+      border-width: 1px 0; }
+    .execl .first-project-info .project-other {
+      margin-top: 10px;
+      overflow: hidden; }
+    .execl .first-project-info .align-left {
+      float: left; }
+    .execl .first-project-info .align-right {
+      float: right; }
+    .execl .first-project-info .query-button {
+      background-color: #388ac1;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px; }
+  .execl .calendar {
+    width: 351px;
+    font: 12px "SimHei"; }
+    .execl .calendar .calendar-wrap {
+      padding: 10px 20px 23px; }
+    .execl .calendar .date {
+      list-style: none;
+      line-height: 23px;
+      text-align: center;
+      overflow: hidden; }
+      .execl .calendar .date li {
+        float: left;
+        height: 23px;
+        margin: 0 2px;
+        box-sizing: border-box;
+        border: 1px solid #cacbcb; }
+      .execl .calendar .date i {
+        float: right;
+        height: 100%;
+        width: 20px;
+        border-left: .5px solid #cacbcb;
+        background: url(image/task_1_9_10.png) no-repeat center; }
+      .execl .calendar .date .year {
+        width: 65px; }
+      .execl .calendar .date .month {
+        width: 86px; }
+      .execl .calendar .date .market-date {
+        width: 76px; }
+      .execl .calendar .date .back-today {
+        width: 65px; }
+    .execl .calendar .calendar-days {
+      height: 36px;
+      margin-top: 10px;
+      border-style: solid;
+      border-color: #a9cfec #ececed;
+      border-width: 1px 0 1px 0;
+      line-height: 36px; }
+      .execl .calendar .calendar-days span {
+        float: left;
+        width: 14.2857%;
+        text-align: center; }
+    .execl .calendar .calendar-book {
+      list-style: none;
+      font-size: 0; }
+      .execl .calendar .calendar-book li {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 14.2857%;
+        height: 42px;
+        padding-top: 9px;
+        /*字体居中*/
+        margin: 2px 0;
+        text-align: center;
+        font: 12px "SimHei"; }
+      .execl .calendar .calendar-book li p {
+        float: left;
+        width: 100%; }
+      .execl .calendar .calendar-book .red-font {
+        color: #cd3539; }
+      .execl .calendar .calendar-book .market-day {
+        border: 1px solid #f7d463; }
+  .execl .brand-list {
+    width: 531px; }
+    .execl .brand-list .brand-wrap {
+      padding: 20px 40px;
+      font: 13px/25px "SimHei"; }
+      .execl .brand-list .brand-wrap table {
+        width: 100%;
+        border: 1px solid #ececed;
+        border-collapse: collapse;
+        text-align: center; }
+      .execl .brand-list .brand-wrap table tr {
+        cursor: pointer; }
+      .execl .brand-list .brand-wrap table tr:hover {
+        background-color: #f4f6f7; }
+      .execl .brand-list .brand-wrap table td, .execl .brand-list .brand-wrap table th {
+        border: 1px solid #ececed; }
+      .execl .brand-list .brand-wrap .first-column {
+        min-width: 70px; }
+      .execl .brand-list .brand-wrap .second-column {
+        min-width: 90px; }
+      .execl .brand-list .brand-wrap tr :nth-child(3) {
+        text-align: left;
+        padding-left: 25px; }
+      .execl .brand-list .brand-wrap p {
+        display: inline-block;
+        width: 167px;
+        height: 4px;
+        vertical-align: middle;
+        background-color: #dddddd; }
+        .execl .brand-list .brand-wrap p span {
+          display: inline-block;
+          height: 100%;
+          vertical-align: top; }
+
+.query-dazhong {
+  width: 140px; }
+
+.query-fengtian {
+  width: 83.88589px; }
+
+.query-aodi {
+  width: 66.23057px; }
+
+.query-bentian {
+  width: 65.50497px; }
+
+.query-fute {
+  width: 63.89988px; }
+
+.query-baoma {
+  width: 61.37902px; }
+
+.query-xiandai {
+  width: 57.57474px; }
+
+.query-qiya {
+  width: 55.10376px; }
+
+.query-benchi {
+  width: 54.87809px; }
+
+.query-bieke {
+  width: 53.07826px; }
+
+.color-lightblue {
+  background-color: #7fcbf0; }
+
+.color-lightred {
+  background-color: #ec6e51; }
+
+.color-lightorange {
+  background-color: #f19e4f; }
+
+.left-nav {
+  width: 260px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  color: #6e8095;
+  background-color: #2a2e3d;
+  /*user-info*/ }
+  .left-nav .image-name {
+    font-size: 0; }
+  .left-nav .user-image-wrap {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 20px 20px 20px 45px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #fff; }
+  .left-nav .user-image {
+    background-color: #b9babe;
+    border-radius: 50%; }
+    .left-nav .user-image img {
+      width: 100%;
+      height: 100%; }
+  .left-nav .user-name-wrap {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 112px; }
+  .left-nav .user-name {
+    font: 16px "SimHei";
+    color: #fff; }
+  .left-nav .follow-fans {
+    margin-bottom: 20px;
+    overflow: hidden; }
+    .left-nav .follow-fans > * {
+      float: left;
+      box-sizing: border-box;
+      font: 12px/13px "SimHei"; }
+    .left-nav .follow-fans .follow-number, .left-nav .follow-fans .fans-number {
+      font: 16px/18px "SimHei"; }
+    .left-nav .follow-fans .follow {
+      width: 120px;
+      border-right: 2px solid #6e8095;
+      padding-right: 30px;
+      text-align: right; }
+    .left-nav .follow-fans .fans {
+      padding-left: 30px;
+      width: 140px; }
+  .left-nav .tree-nav {
+    font: 12px/48px "SimHei"; }
+    .left-nav .tree-nav ol {
+      list-style: none;
+      padding-left: 30px; }
+    .left-nav .tree-nav ol.tree {
+      padding-left: 0px; }
+      .left-nav .tree-nav ol.tree > li {
+        padding-left: 45px; }
+        .left-nav .tree-nav ol.tree > li.active {
+          background-color: #393e4e; }
+    .left-nav .tree-nav ol.tree > li > p > img {
+      padding-left: 10px; }
+    .left-nav .tree-nav img {
+      padding-right: 5px;
+      vertical-align: text-bottom; }
+    .left-nav .tree-nav .active {
+      color: #fff; }
+
+/*# sourceMappingURL=index.css.map */
