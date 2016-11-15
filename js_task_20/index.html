@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    div > span {
+        display: inline-block;
+        font: 14px/30px "Microsoft YaHei";
+        letter-spacing: 3px;
+        background-color: #aaa;
+        padding: 0 10px;
+        margin-left: 12px;
+    }
+    
+    span > span {
+        background-color: blue;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <textarea id="text" rows="10" cols="30">
+        </textarea>
+        <button id="query">查询</button>
+        <input type="text" name="key_word" id="key_word">
+    </div>
+    <div id="display">
+    </div>
+    <script type="text/javascript">
+    var $ = function(id) {
+        return document.getElementById(id);
+    };
+
+    window.onload = function(argument) {
+
+        var textArea = $("text"),
+            inputArea = $("key_word"),
+            displayArea = $("display"),
+            queryButton = $("query"),
+            queryText = ""; //字符串副本
+
+        //绑定内容改变事件
+        textArea.addEventListener("change", function() {
+            var textArr = textArea.value.trim();
+            queryText = textArea.value.trim();
+
+            render(textArr);
+        }, false);
+
+        queryButton.addEventListener("click", function() {
+            var keyWord = inputArea.value.trim();
+            if (keyWord === "" || queryText === "") return;
+
+            //匹配关键词
+            var replaceText = queryText.replace(new RegExp(keyWord, "g"),
+                "<span>" + keyWord + "</span>");
+
+            render(replaceText);
+        }, false);
+
+        function render(text) {
+            var innerhtml = text.split(/\s+/g).reduce(function(x, y) {
+                return x + "<span>" + y + "</span>";
+            }, "");
+
+            displayArea.innerHTML = innerhtml;
+        }
+    };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>task_18</title>
+    <style type="text/css">
+    .content {
+        margin-top: 20px;
+        font-size: 0;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .content span {
+        display: inline-block;
+        width: 20px;
+        margin: 0 5px;
+        background-color: #aaa;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="operate">
+        <input type="number" id="input_num" />
+        <button name="unshift">左侧入</button>
+        <button name="push">右侧入</button>
+        <button name="shift">左侧出</button>
+        <button name="pop">右侧出</button>
+        <button name="setValue">随机数组</button>
+        <button name="sort">排序</button>
+    </div>
+    <div id="content" class="content">
+    </div>
+    <script type="text/javascript">
+    var $ = function(selector) {
+        return document.getElementById(selector);
+    };
+    /*注册事件*/
+    var addEvent = function(ele, type, handle, useCapture) {
+        useCapture = useCapture || false;
+        if (ele.addEventListener) {
+            ele.addEventListener(type, handle, useCapture);
+        } else {
+            ele.attachEvent(type, handle);
+        }
+    };
+
+    //交换数组元素
+    function swap(arr, i, j) {
+        arr[i] = arr[i] - arr[j];
+        arr[j] = arr[i] + arr[j];
+        arr[i] = arr[j] - arr[i];
+    }
+
+    //定义List类，用于操作数据
+    function List(length) {
+        this.value = [];
+        this.aniQue = [];
+        this.listLength = length;
+    }
+
+    List.prototype = {
+        contstructor: List,
+
+        setValue: function(length, max) {
+            this.value = randomList(length, max);
+            this.paint();
+        },
+        //右侧出
+        pop: function() {
+            if (this.isEmpty()) return;
+            this.value.pop();
+            this.paint();
+        },
+        //右侧入
+        push: function(ele) {
+            if (this.outOfLength()) {
+                alert("长度最多为60");
+                return;
+            }
+            this.value.push(ele);
+            this.paint();
+        },
+        //左侧入
+        unshift: function(ele) {
+            if (this.outOfLength()) {
+                alert("长度最多为60");
+                return;
+            }
+            this.value.unshift(ele);
+            this.paint();
+        },
+        //左侧出
+        shift: function() {
+            if (this.isEmpty()) return;
+            this.value.shift();
+            this.paint();
+        },
+        deleteByIndex: function(index) {
+            this.value.splice(index, 1);
+            this.paint();
+        },
+
+        sort: function() {
+            //冒泡排序
+            var arr = this.value,
+                aniQue = this.aniQue;
+
+            for (var i = 0, len = arr.length; i < len; i++) {
+                for (var j = i + 1; j < len; j++) {
+                    if (arr[i] - arr[j] > 0) {
+                        swap.call(null, arr, i, j);
+                        aniQue.push(arr.slice());
+                    }
+                }
+            }
+            this.startAnimation(); //开始动画
+        },
+
+        startAnimation: function() {
+            var self = this,
+                arr = this.aniQue;
+
+            //每个一定时间更新图标
+            var ani = setInterval(function() {
+                if (arr.length) {
+                    self.paint(arr.shift());
+                } else {
+                    clearInterval(ani);
+                }
+
+            }, 150);
+        },
+
+        paint: function(list) {
+            list = list || this.value;
+            var innerhtml = "";
+
+            list.forEach(function(ele, index) {
+                innerhtml += "<span data-index='" + index + "' style='height:" + ele + "px;'>" + ele + "</span>";
+            });
+            numList.innerHTML = innerhtml;
+        },
+        isEmpty: function() {
+            return this.value.length > 0 ? false : true;
+        },
+        outOfLength: function() {
+            return this.listLength === this.value.length ? true : false;
+        }
+    };
+
+    /*
+     *生成随机数组
+     *@param {length} int 数组长度
+     *@param {max}    int 最大数值
+     */
+    function randomList(length, max) {
+        length = length || 15;
+        max = max || 150;
+
+        var list = [];
+        for (var i = 0; i < length; i++) {
+            list[i] = Math.floor((Math.random() * 150));
+        }
+
+        return list;
+    }
+
+
+    var numList = $("content"),
+        numInput = $("input_num"),
+        buttonList = $("operate").getElementsByTagName("button");
+
+    var list = new List(60),
+        buttonList = Array.from ? Array.from(buttonList) :
+        Array.prototype.slice.call(buttonList); //转换成数组
+
+    //利用冒泡原理，在父元素上绑定点击事件
+    buttonList.forEach(function(ele, index) {
+        addEvent(ele, "click", function() {
+            if (ele.name === "push" || ele.name === "unshift") {
+                var inputValue = numInput.value;
+                //验证数据
+                if (/^[0-9]*(.[0-9]*)?$/.test(inputValue) && inputValue >= 10 && inputValue <= 100) {
+                    list[ele.name](inputValue * 1);
+                    return;
+                } else {
+                    alert("请输入10-100的数字");
+                    return;
+                }
+            } else {
+                list[ele.name]();
+            }
+
+
+        });
+    });
+
+    addEvent(numList, "click", function(event) {
+        var target = event.target;
+
+        if (target.nodeName === "SPAN") {
+            list.deleteByIndex(target.dataset.index);
+        }
+
+    });
+    </script>
+</body>
+
+</html>
