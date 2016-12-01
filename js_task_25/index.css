@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+ul{
+	list-style: none;
+}
+
+.wrapper{
+	width: 30%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.wrapper h3{
+	width: 90%;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.query{
+	width: 100%;
+	text-align: center;
+}
+
+.queryButton{
+	font: 16px/26px "Microsoft YaHei";
+	border: 1px solid;
+	border-radius: 5px;
+	background: #ffd7aa;
+}
+.tree{
+	width: 100%;
+}
+
+.tree ul{
+	display: none;
+}
+
+li.active>ul{
+	display: block;
+}
+
+.tree li>p:before{
+	content: "+";
+	padding: 0 5px;
+	border: 1px solid #aaa;
+}
+
+li.active>p:before{
+	content: "-";
+}
+.nodeText{
+	margin-left: 10px;
+}
+
+/*新增和删除按钮样式*/
+.add-delete{
+	opacity: 0;
+	padding: 0 15px;
+}
+.add-delete button{
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	background: transparent;
+	margin-right: 10px;
+}
+
+.add-delete button:hover{
+	background: #aaa
+	}
+
+.tree p:hover>.add-delete{
+	opacity: 1;
+}
+
+.selected{
+	background: #aaa;
+}

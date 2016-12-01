@@ -68,14 +68,40 @@
     function Tree(data) {
         var root = data ? new Node(data) : null;
         this._root = root;
+        this.arr = [];
     }
 
     /*
      *遍历树,将数据返回到arr数组
      */
-    Tree.prototype.traverse = function(order,arr) {
-        order.call(this, this._root,arr);
+    Tree.prototype.traverse = function(order) {
+        order.call(this,this._root);
     };
+
+    /*
+    *遍历树动画开始
+    */
+     Tree.prototype.start = function(foundText) {
+        foundText = foundText || "";
+
+        var index = 0;
+        var arr = this.arr;
+
+        var loop = setInterval(function() {
+            if (index >= arr.length) {
+                clearInterval(loop);
+                return;
+            }
+            arr[index].style.backgroundColor = "red";
+            index > 0 ? arr[index - 1].style.backgroundColor = "#fff":null;
+
+            if (foundText!==""&&arr[index].firstChild.nodeValue.trim() === foundText) {
+                clearInterval(loop);
+                return;
+            }
+            index++;
+        }, 1000);
+    }
     /*
      *把dom转换为自定义的Tree
      *
@@ -93,7 +119,7 @@
             var childNodes = documentNode.children;
 
             if (!childNodes.length) return;
-            //循环插入tree
+            //循环插入dom节点到tree
             for (var i = 0, len = childNodes.length; i < len; i++) {
                 var node = new Node(childNodes[i]);
 
@@ -108,57 +134,29 @@
     /**
      *遍历二叉树 返回数组
      */
-    function preOrder(currentNode,arr) {
-        arr.push(currentNode.data);
+    function preOrder(currentNode) {
+        this.arr.push(currentNode.data);
         for (var i = 0; i < currentNode.childs.length; i++) {
             preOrder(currentNode.childs[i]);
-        };
+        }
     }
 
-    //不是二叉树 所以无法执行该方法
-    // function inOrder(currentNode) {
-
-    //     if (currentNode !== null || currentNode !== undefined) {
-    //         for (var i = 0; i < currentNode.childs.length; i++) {
-    //             preOrder(currentNode.childs[i]);
-    //         };
-    //     }
-    // }
-
-    function postOrder(currentNode,arr) {
+    function postOrder(currentNode) {
+        console.log(this);
         for (var i = 0; i < currentNode.childs.length; i++) {
-            postOrder(currentNode.childs[i]);
-        };
-        arr.push(currentNode.data);
+            postOrder.call(this,currentNode.childs[i]);
+        }
+        this.arr.push(currentNode.data);
     }
-    //开始动画
-    function start(arr, foundText) {
-        foundText = foundText || "";
-
-        var index = 0;
-        var loop = setInterval(function() {
-            if (index >= arr.length) {
-                clearInterval(loop);
-                return;
-            }
-            arr[index].style.backgroundColor = "red";
-            index > 0 ? arr[index - 1].style.backgroundColor = "#fff" : null;
-
-            if (arr[index].firstChild.nodeValue.trim() === foundText) {
-                clearInterval(loop);
-                return;
-            };
-            index++;
-        }, 1000);
-    }
+   
 
     var root = document.getElementById("root");
     var tree = Tree.from(root);
 
-    var arr = [];//遍历结果
-    tree.traverse(postOrder,arr);
+    tree.traverse(postOrder);
 
-    start(arr, "abc");
+    tree.start("curry");
+
     </script>
 </body>
 

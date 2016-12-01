@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    div {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #aaa;
+        margin: 10px;
+        min-width: 100px;
+        min-height: 100px;
+    }
+    .select{
+        background-color: #aaa;
+    }
+
+    .active{
+        background-color: red;
+    }
+    .checked{
+        background-color: red !important;
+    }
+    
+    .align-center {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h3 class="align-center">
+        实现树的增加、删除、查询
+    </h3>
+    <div id="wrapper">
+    <div id="root">
+        <div>jordan
+            <div>kobe</div>
+            <div>james</div>
+            <div>durant</div>
+            <div>curry</div>
+            <div>paul</div>
+            <div>iriving</div>
+            <div>bluke</div>
+            <div>harden</div>
+        </div>
+        <div>
+            <div>html</div>
+            <div>css</div>
+            <div>js</div>
+            <div>jQuery</div>
+            <div>vue</div>
+            <div>react</div>
+        </div>
+        <div>alone</div>
+    </div>
+    </div>
+    <p class="align-center">
+        <button name="deleteNode">删除选择节点</button>
+        <input type="text" id="newText" placeholder="新增节点的内容"/>
+        <button name="addNode">新增选择节点</button>
+    </p>
+    <p class="align-center">
+        <input type="text" name="queryText" id="queryText" />
+        <button data-order="preOrder">前序搜索</button>
+        <button data-order="postOrder">后续搜索</button>
+    </p>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

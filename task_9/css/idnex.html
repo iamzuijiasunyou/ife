@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_18</title>
+
+	<style type="text/css">
+	.content{
+		margin-top:20px;
+		font-size:0;
+	}
+
+	.content span{
+		display:inline-block;
+		padding:0 15px;
+		margin:0 15px;
+		font: bold 20px/50px Microsoft YaHei;
+		background-color:#aaa;
+	}
+</style>
+</head>
+<body>
+	<div id="operate">
+		<input type="number" id="input_num" />
+		<button name="left-push">左侧入</button>
+		<button name="right-push">右侧入</button>
+		&nbsp;&nbsp;
+		<button name="left-pop">左侧出</button>
+		<button name="right-pop">右侧出</button>
+	</div>
+	<div id="content" class="content">
+		
+	</div>
+
+	<script type="text/javascript">
+	var $ = function (selector) {
+		return document.getElementById(selector);
+	};
+
+	function init () {
+		operate_area.addEventListener("click", handleclick, false);
+		num_list.addEventListener("click", handleclick, false);
+	}
+
+	var num_list = $("content"),
+		num_input = $("input_num"),
+		operate_area = $("operate");
+
+	
+
+	function handleclick (event) {
+		//如果点击的是按钮 触发事件
+		var target = event.target;
+
+		if (target.nodeName==="BUTTON") {
+			var value = num_input.value.trim();
+				operate = target.getAttribute("name").split("-");
+
+			var direction = operate[0];
+				type = operate[1];
+
+			//如果是数字
+			if (/^[0-9]*(.[0-9]*)?$/.test(value)&&value!=="") {
+				updateContent(value,direction,type);
+			}else{
+				alert("请输入数字");
+			}
+		}else if(target.nodeName==="SPAN"){
+			target.remove();
+		}
+	}
+
+	/*
+	*根据用户的操作更新内容区域
+	*/
+	function updateContent (value,direction,type) {
+		var ele = document.createElement("span");
+		ele.innerHTML = value;
+		if (type==="push") {
+			if (direction==="left")
+				num_list.insertBefore(ele,num_list.firstChild);
+			else
+				num_list.appendChild(ele);
+		}else{
+			if (num_list.children.length===0) return;
+
+			alert(ele.innerHTML);	
+			if (direction==="left")
+				num_list.removeChild(num_list.firstChild);
+			else
+				num_list.removeChild(num_list.lastChild);
+		}
+	}
+
+	init();
+	
+	</script>
+</body>
+</html>

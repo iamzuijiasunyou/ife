@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    div {
+        display: inline-block;
+        border: 1px solid #aaa;
+        margin: 10px;
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .active{
+        background-color: red;
+    }
+    .checked{
+        background-color: red !important;
+    }
+    
+    .align-center {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h3 class="align-center">
+        实现树的前、后序遍历搜索
+    </h3>
+    <div id="root">
+        <div>jordan
+            <div>kobe</div>
+            <div>james</div>
+            <div>durant</div>
+            <div>curry</div>
+            <div>paul</div>
+            <div>iriving</div>
+            <div>bluke</div>
+            <div>harden</div>
+        </div>
+        <div>
+            <div>jacson</div>
+            <div>lawen</div>
+            <div>waste</div>
+            <div>adc</div>
+            <div>avc</div>
+            <div>abc</div>
+            <div>vafdew</div>
+            <div>werwer</div>
+        </div>
+        <div>alone</div>
+        <div>
+            <div>132</div>
+            <div>123</div>
+            <div>321</div>
+            <div>456</div>
+            <div>789</div>
+             <div>789</div>
+            <div>357</div>
+            <div>159</div>
+            <div>852</div>
+        </div>
+    </div>
+    <p class="align-center">
+        <input type="text" name="queryText" id="queryText" />
+        <button data-order="preOrder">前序搜索</button>
+        <button data-order="postOrder">后续搜索</button>
+    </p>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

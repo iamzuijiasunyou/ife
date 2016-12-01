@@ -39,7 +39,7 @@ a {
       outline: none;
       padding-left: 35px;
       /*let text behind of backgorundimage*/
-      background: #fff url(image/task_1_9_2.png) no-repeat 15px center; }
+      background: #fff url(../image/task_1_9_2.png) no-repeat 15px center; }
     .header .search-login .login-link {
       font: 12px/16px "SimHei";
       color: #fff; }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    div {
+        display: inline-block;
+        border: 1px solid #aaa;
+        margin: 10px;
+        min-width: 100px;
+        min-height: 100px;
+    }
+    
+    .align-center {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h3 class="align-center">
+        实现二叉树的前、中、后序遍历
+    </h3>
+    <div id="root">
+        <div>jordan
+            <div>kobe
+                <div>132</div>
+                <div>123</div>
+            </div>
+            <div>james
+                <div>135</div>
+                <div>248</div>
+            </div>
+        </div>
+        <div>
+            ivring
+            <div>jacson</div>
+            <div>lawen</div>
+        </div>
+    </div>
+    <p id="changOlder" class="align-center">
+        <button data-order="preOrder">前序遍历</button>
+        <button data-order="inOrder">中序遍历</button>
+        <button data-order="postOrder">后序遍历</button>
+    </p>
+    <script type="text/javascript">
+    //Tree类
+    function Tree(root) {
+        this.root = root;
+    }
+    //遍历
+    Tree.prototype.traverse = function(order) {
+        var arr = [];
+        order.call(this, this.root, function(currentNode) {
+            arr.push(currentNode);
+        });
+        return arr;
+    };
+    //前序遍历
+    Tree.preOrder = function(currentNode, fn) {
+        fn.call(null, currentNode);
+        if (currentNode.children.length) {
+            Tree.preOrder(currentNode.children[0], fn);
+            Tree.preOrder(currentNode.children[1], fn);
+        }
+    };
+    Tree.inOrder = function(currentNode, fn) {
+        if (currentNode.children.length) {
+            Tree.preOrder(currentNode.children[0], fn);
+            fn.call(null, currentNode);
+            Tree.preOrder(currentNode.children[1], fn);
+        }
+    };
+    //后序遍历
+    Tree.postOrder = function(currentNode, fn) {
+        if (currentNode.children.length) {
+            Tree.postOrder(currentNode.children[0], fn);
+            Tree.postOrder(currentNode.children[1], fn);
+        }
+        fn.call(null, currentNode);
+    };
+    /*
+     *遍历树动画开始
+     */
+    Tree.start = function(arr) {
+
+        var index = 0;
+
+        var loop = setInterval(function() {
+            if (index >= arr.length) {
+                clearInterval(loop);
+                arr[arr.length - 1].style.backgroundColor = "#fff";
+                return;
+            }
+
+            //设置当前节点颜色
+            arr[index].style.backgroundColor = "red";
+            //重置上一节点颜色
+            index > 0 ? arr[index - 1].style.backgroundColor = "#fff" : null;
+
+            index++;
+        }, 1000);
+    };
+
+
+
+
+    window.onload = function() {
+        //处理按钮事件
+        function handle(event) {
+            var target = event.target;
+
+            if (target.nodeName === "BUTTON") {
+                var order = target.dataset ? target.dataset.order :
+                    target.getAttribute("data-order");
+
+                var arr = tree.traverse(Tree[order]);
+
+                Tree.start(arr);
+            }
+        }
+
+        var root = document.getElementById("root"),
+            tree = new Tree(root);
+
+        //绑定按钮事件 兼容IE
+        var changOlder = document.getElementById("changOlder");
+        if (changOlder.addEventListener) {
+            changOlder.addEventListener("click", handle, false);
+        } else {
+            changOlder.attachEvent("onclick", handle);
+        }
+
+
+
+    };
+    </script>
+</body>
+
+</html>
