@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>飞船</title>
+    <link rel="stylesheet" type="text/css" href="./src/index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <canvas id="canvas" class="ship-canvas" width="400" height="400">
+        </canvas>
+        <canvas id="layer" class="layer-canvas" width="400" height="400">
+        </canvas>
+    </div>
+    <aside class="console-log">
+        <h5>commander log</h5>
+    </aside>
+    <footer class="commander-panel">
+        <h6>panel</h6>
+        <ul>
+            <li>
+                spaceship No.1
+                <button data-op="init">init</button>
+                <button data-op="fly">fly</button>
+                <button data-op="stop">stop</button>
+                <button data-op="destroy">destroy</button>
+            </li>
+            <li>
+                spaceship No.2
+                <button data-op="init">init</button>
+                <button data-op="fly">fly</button>
+                <button data-op="stop">stop</button>
+                <button data-op="destroy">destroy</button>
+            </li>
+            <li>
+                spaceship No.3
+                <button data-op="init">init</button>
+                <button data-op="fly">fly</button>
+                <button data-op="stop">stop</button>
+                <button data-op="destroy">destroy</button>
+            </li>
+            <li>
+                spaceship No.4
+                <button data-op="init">init</button>
+                <button data-op="fly">fly</button>
+                <button data-op="stop">stop</button>
+                <button data-op="destroy">destroy</button>
+            </li>
+        </ul>
+        <section class="type-select">
+            <div>
+                <h6>动力系统选择：</h6>
+                <p class="dynamic-select">
+                    <input type="radio" name="dynamic" value="3,5" />
+                    <label>前进号(速率30，消耗5)</label>
+                    <input type="radio" name="dynamic" value="5,7" />
+                    <label>奔腾号(速率50，消耗7)</label>
+                    <input type="radio" name="dynamic" value="8,9" />
+                    <label>超越号(速率80，消耗9)</label>
+                </p>
+            </div>
+            <div>
+                <h6>
+             能源系统选择：</h6>
+                <p class="power-select">
+                    <input type="radio" name="power" value="2" />
+                    <label>劲量型(速率2)</label>
+                    <input type="radio" name="power" value="3" />
+                    <label>光能型(速率3)</label>
+                    <input type="radio" name="power" value="4" />
+                    <label>永久型(速率4)</label>
+                </p>
+            </div>
+        </section>
+    </footer>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
